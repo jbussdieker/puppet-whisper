@@ -1,0 +1,14 @@
+{
+  "name": "jbussdieker-whisper",
+  "version": "0.0.1",
+  "author": "Joshua Bussdieker",
+  "summary": "Puppet Whisper management module",
+  "license": "MIT",
+  "source": "http://github.com/jbussdieker/puppet-whisper",
+  "project_page": "http://github.com/jbussdieker/puppet-whisper",
+  "issues_url": "https://github.com/jbussdieker/puppet-whisper/issues",
+  "description": "This module can be used for basic Whisper Management",
+  "dependencies": [
+  
+  ]
+}
