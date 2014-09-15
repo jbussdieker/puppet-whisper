@@ -21,9 +21,9 @@ Installing from source
 
 Installing and configuring using Hiera
 
-```yaml
+````YAML
     classes:
      - whisper
     whisper::install_method: source
     whisper::revision: 0.9.11
-```
+````
