@@ -18,3 +18,12 @@ Installing from source
       revision       => '0.9.11',
     }
 ```
+
+Installing and configuring using Hiera
+
+```yaml
+    classes:
+     - whisper
+    whisper::install_method: source
+    whisper::revision: 0.9.11
+```
