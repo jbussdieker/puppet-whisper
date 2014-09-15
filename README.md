@@ -15,5 +15,6 @@ Installing from source
 ```puppet
     class { 'whisper':
       install_method => source,
+      revision       => '0.9.11',
     }
 ```
