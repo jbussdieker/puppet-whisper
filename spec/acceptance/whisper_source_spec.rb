@@ -3,7 +3,9 @@ require 'spec_helper_acceptance'
 describe 'whisper class' do
   let(:manifest) {
     <<-EOS
-      class { 'whisper': }
+      class { 'whisper':
+        install_method => source
+      }
     EOS
   }
 
@@ -21,7 +23,7 @@ describe 'whisper class' do
       end
 
       it 'whisper-create.py should work' do
-        shell("whisper-create --overwrite /tmp/testmetric.wsp 60:1440", :acceptable_exit_codes => 0)
+        shell("whisper-create.py --overwrite /tmp/testmetric.wsp 60:1440", :acceptable_exit_codes => 0)
       end
     end
   end
