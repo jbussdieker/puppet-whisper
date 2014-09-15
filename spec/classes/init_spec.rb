@@ -14,7 +14,7 @@ describe 'whisper' do
     let(:path) { '/path/to' }
     let(:revision) { '0.0.1' }
     let(:source) { 'https://github.com/foo/bar.git' }
-    let(:params) { { install_method: install_method, path: path, revision: revision, source: source } }
+    let(:params) { { :install_method => install_method, :path => path, :revision => revision, :source => source } }
 
     context 'from package' do
       let(:install_method) { 'package' }

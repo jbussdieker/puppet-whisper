@@ -9,7 +9,7 @@ describe 'whisper::source' do
     let(:path) { 'path' }
     let(:revision) { 'revision' }
     let(:source) { 'source' }
-    let(:params) { { path: path, revision: revision, source: source } }
+    let(:params) { { :path => path, :revision => revision, :source => source } }
 
     it do
       should contain_vcsrepo('whisper_source').with({
