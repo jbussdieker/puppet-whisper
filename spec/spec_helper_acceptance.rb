@@ -1,13 +1,8 @@
 require 'beaker-rspec'
-require 'pry'
 
-hosts.each do |host|
-  # Install Puppet
-  install_package host, 'rubygems'
-  install_package host, 'git'
-  on host, 'gem install puppet --no-ri --no-rdoc'
-  on host, "mkdir -p #{host['distmoduledir']}"
-end
+foss_opts = { :default_action => 'gem_install' }
+
+install_puppet(foss_opts)
 
 RSpec.configure do |c|
   # Project root
@@ -20,8 +15,13 @@ RSpec.configure do |c|
   c.before :suite do
     # Install module
     puppet_module_install(:source => proj_root, :module_name => 'whisper')
+
     hosts.each do |host|
+      on host, puppet('module', 'install', 'puppetlabs-git'), { :acceptable_exit_codes => [0,1] }
       on host, puppet('module', 'install', 'puppetlabs-vcsrepo'), { :acceptable_exit_codes => [0,1] }
+      apply_manifest(%{
+        include git
+      })
     end
   end
 end
