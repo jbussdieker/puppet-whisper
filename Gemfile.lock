@@ -225,6 +225,7 @@ PLATFORMS
 
 DEPENDENCIES
   beaker-rspec
+  facter
   pry
   puppet
   puppetlabs_spec_helper
