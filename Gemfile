@@ -2,8 +2,11 @@ source 'https://rubygems.org'
 
 gem 'rspec', '2.14.1'
 gem 'puppetlabs_spec_helper'
-gem 'beaker-rspec'
-gem 'pry'
+
+group :system_tests do
+  gem 'beaker-rspec', :require => false
+  gem 'serverspec', :require => false
+end
 
 if facterversion = ENV['FACTER_GEM_VERSION']
   gem 'facter', facterversion, :require => false
