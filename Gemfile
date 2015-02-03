@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
 group :development, :unit_tests do
-  gem 'rspec', '2.14.1'
   gem 'rspec-puppet'
   gem 'simplecov', :require => false
   gem 'puppetlabs_spec_helper'
