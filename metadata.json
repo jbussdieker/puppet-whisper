@@ -8,6 +8,12 @@
   "project_page": "http://github.com/jbussdieker/puppet-whisper",
   "issues_url": "https://github.com/jbussdieker/puppet-whisper/issues",
   "description": "This module can be used for basic Whisper Management",
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "Ubuntu",
+      "operatingsystemrelease": [ "12.04" ]
+    }
+  ],
   "dependencies": [
   
   ]

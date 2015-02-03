@@ -4,7 +4,7 @@ describe 'whisper class' do
   let(:manifest) {
     <<-EOS
       class { 'whisper':
-        install_method => source
+        ensure => 'master'
       }
     EOS
   }
