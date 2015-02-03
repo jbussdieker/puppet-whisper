@@ -51,13 +51,15 @@ class whisper::source(
     revision => $revision,
     source   => $source,
     provider => git,
+    notify   => Exec['whisper_source_install'],
   }
 
   exec { 'whisper_source_install':
-    cwd     => $path,
-    command => '/usr/bin/python setup.py install',
-    creates => '/usr/local/lib/python2.7/dist-packages/whisper.py',
-    require => Vcsrepo[$path],
+    cwd         => $path,
+    command     => '/usr/bin/python setup.py install',
+    creates     => '/usr/local/lib/python2.7/dist-packages/whisper.py',
+    refreshonly => true,
+    require     => Vcsrepo[$path],
   }
 
 }
