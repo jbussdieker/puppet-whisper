@@ -1,6 +1,6 @@
 require 'spec_helper_acceptance'
 
-describe 'whisper class' do
+describe 'whisper::source class' do
   let(:manifest) {
     <<-EOS
       class { 'whisper':
