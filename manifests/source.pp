@@ -9,7 +9,8 @@
 # [*source*]
 #   Git source repository. Defaults to mainline.
 # [*revision*]
-#   Any valid git branch, tag or hash. This will be checked out before running `setup.py install`
+#   Any valid git branch, tag or hash. This will be checked out before running
+# `setup.py install`
 #
 # === Examples
 #

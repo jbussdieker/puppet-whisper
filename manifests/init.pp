@@ -5,7 +5,9 @@
 # === Parameters
 #
 # [*ensure*]
-#   Defaults to present which will using `whisper::package` to install the default operating system version any other value will be treated as a version string.
+#   Defaults to present which will using `whisper::package` to install the 
+# default operating system version any other value will be treated as a version
+# string.
 #
 # === Examples
 #
@@ -37,7 +39,7 @@ class whisper(
 
   } elsif $ensure == absent {
 
-    notify { "hmmm": }
+    fail('ensure absent not supported')
 
   } else {
 
