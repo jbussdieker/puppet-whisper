@@ -4,7 +4,7 @@
 
 ### Beginning with Whisper
 
-To install Whisper with the default parameters
+To install Whisper from the operating system package
 
 ```puppet
     class { 'whisper': }
@@ -14,8 +14,7 @@ Installing from source
 
 ```puppet
     class { 'whisper':
-      install_method => source,
-      revision       => '0.9.11',
+      ensure => '0.9.11',
     }
 ```
 
@@ -24,6 +23,5 @@ Installing and configuring using Hiera
 ```yaml
     classes:
      - whisper
-    whisper::install_method: source
-    whisper::revision: 0.9.11
+    whisper::ensure: 0.9.11
 ```
