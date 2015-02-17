@@ -1,17 +1,19 @@
 # == Class: whisper
 #
-# Main class to install whisper from package (default) or from source.
+# Main class to install whisper from package (default with fallback to source)
+# or from source.
 #
 # === Parameters
 #
 # [*ensure*]
-#   Defaults to present which will using `whisper::package` to install the 
+#   Defaults to present which will use `whisper::package` to install the 
 # default operating system version any other value will be treated as a version
-# string.
+# string. Operating systems that do not have whisper package will fallback to
+# using source.
 #
 # === Examples
 #
-# Install default operating system Whisper.
+# Install Whisper without regard for version.
 #
 #  class { 'whisper': }
 #
@@ -33,9 +35,31 @@ class whisper(
   $ensure = present,
 ) {
 
+  if $operatingsystem == "Ubuntu" {
+    if $operatingsystemmajrelease == "14.04" or $operatingsystemmajrelease == "13.10" or $operatingsystemmajrelease == "12.04" {
+      $has_package = true
+    } else {
+      $has_package = false
+    }
+  } elsif $operatingsystem == "Debian" {
+    if $operatingsystemmajrelease == "6" or $operatingsystemmajrelease == "7" {
+      $has_package = true
+    } else {
+      $has_package = false
+    }
+  } else {
+    $has_package = false
+  }
+
   if $ensure == present {
 
-    include whisper::package
+    if $has_package == true {
+      include whisper::package
+    } else {
+      class { 'whisper::source':
+        revision => 'master',
+      }
+    }
 
   } elsif $ensure == absent {
 
