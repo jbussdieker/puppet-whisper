@@ -10,15 +10,31 @@
   "description": "This module can be used for basic Whisper Management",
   "operatingsystem_support": [
     {
-      "operatingsystem": "Ubuntu",
-      "operatingsystemrelease": [ "14.04", "12.04" ]
+      "operatingsystem": "CentOS",
+      "operatingsystemrelease": [ "7", "6" ]
     },
     {
       "operatingsystem": "Debian",
       "operatingsystemrelease": [ "7", "6" ]
+    },
+    {
+      "operatingsystem": "Ubuntu",
+      "operatingsystemrelease": [ "14.04", "12.04" ]
+    }
+  ],
+  "requirements": [
+    {
+      "name": "puppet",
+      "version_requirement": "2.7"
     }
   ],
   "dependencies": [
-
+    { "name": "puppetlabs/vcsrepo", "version": ">= 1.0.0" }
+  ],
+  "tags": [
+    "whisper",
+    "graphite",
+    "python",
+    "carbon"
   ]
 }
