@@ -1,6 +1,6 @@
 {
   "name": "jbussdieker-whisper",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "author": "Joshua Bussdieker",
   "summary": "Puppet Whisper management module",
   "license": "MIT",
