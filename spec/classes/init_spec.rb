@@ -19,17 +19,17 @@ describe 'whisper' do
 
     context '7' do
       let(:operatingsystemmajrelease) { '7' }
-      it { should contain_class('whisper::source') }
+      it { should contain_class('whisper::source').with(:revision => 'master') }
     end
 
     context '6' do
       let(:operatingsystemmajrelease) { '6' }
-      it { should contain_class('whisper::source') }
+      it { should contain_class('whisper::source').with(:revision => 'master') }
     end
 
     context '5' do
       let(:operatingsystemmajrelease) { '5' }
-      it { should contain_class('whisper::source') }
+      it { should contain_class('whisper::source').with(:revision => 'master') }
     end
   end
 
@@ -67,7 +67,7 @@ describe 'whisper' do
 
     context '10.04' do
       let(:operatingsystemmajrelease) { '10.04' }
-      it { should contain_class('whisper::source') }
+      it { should contain_class('whisper::source').with(:revision => 'master') }
     end
   end
 
@@ -90,4 +90,6 @@ describe 'whisper' do
       })
     end
   end
+
+  it { should contain_class('whisper') }
 end
