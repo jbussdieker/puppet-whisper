@@ -1,5 +1,6 @@
 # Whisper
 
+[![Puppet Forge](http://img.shields.io/puppetforge/v/jbussdieker/whisper.svg)](https://forge.puppetlabs.com/jbussdieker/whisper)
 [![Build Status](https://travis-ci.org/jbussdieker/puppet-whisper.svg?branch=master)](https://travis-ci.org/jbussdieker/puppet-whisper)
 
 ## Usage
