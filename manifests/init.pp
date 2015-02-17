@@ -35,14 +35,14 @@ class whisper(
   $ensure = present,
 ) {
 
-  if $operatingsystem == "Ubuntu" {
-    if $operatingsystemmajrelease == "14.04" or $operatingsystemmajrelease == "13.10" or $operatingsystemmajrelease == "12.04" {
+  if $::operatingsystem == 'Ubuntu' {
+    if $::operatingsystemmajrelease == '14.04' or $::operatingsystemmajrelease == '13.10' or $::operatingsystemmajrelease == '12.04' {
       $has_package = true
     } else {
       $has_package = false
     }
-  } elsif $operatingsystem == "Debian" {
-    if $operatingsystemmajrelease == "6" or $operatingsystemmajrelease == "7" {
+  } elsif $::operatingsystem == 'Debian' {
+    if $::operatingsystemmajrelease == '6' or $::operatingsystemmajrelease == '7' {
       $has_package = true
     } else {
       $has_package = false
