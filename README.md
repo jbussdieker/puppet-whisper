@@ -5,13 +5,13 @@
 
 ## Usage
 
-To install Whisper from the operating system package
+To install Whisper with the default parameters
 
 ```puppet
 class { 'whisper': }
 ```
 
-Installing from source
+Installing a specific version
 
 ```puppet
 class { 'whisper':
