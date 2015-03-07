@@ -12,7 +12,7 @@ describe 'whisper::source' do
     let(:params) { { :path => path, :revision => revision, :source => source } }
 
     it do
-      should contain_vcsrepo('whisper_source').with({
+      should contain_vcsrepo('whisper').with({
         'ensure'   => 'present',
         'path'     => path,
         'revision' => revision,
@@ -22,11 +22,10 @@ describe 'whisper::source' do
     end
 
     it do
-      should contain_exec('whisper_source_install').with({
-        'cwd'     => path,
-        'command' => '/usr/bin/python setup.py install',
-        'creates' => '/usr/local/lib/python2.7/dist-packages/whisper.py',
-        'require' => "Vcsrepo[#{path}]",
+      should contain_exec('whisper_install').with({
+        'cwd'         => path,
+        'command'     => '/usr/bin/python setup.py install',
+        'refreshonly' => true,
       })
     end
   end

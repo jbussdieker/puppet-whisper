@@ -45,21 +45,19 @@ class whisper::source(
   $revision = 'master'
 ) {
 
-  vcsrepo { 'whisper_source':
+  vcsrepo { 'whisper':
     ensure   => present,
     path     => $path,
     revision => $revision,
     source   => $source,
     provider => git,
-    notify   => Exec['whisper_source_install'],
+    notify   => Exec['whisper_install'],
   }
 
-  exec { 'whisper_source_install':
+  exec { 'whisper_install':
     cwd         => $path,
     command     => '/usr/bin/python setup.py install',
-    creates     => '/usr/local/lib/python2.7/dist-packages/whisper.py',
     refreshonly => true,
-    require     => Vcsrepo[$path],
   }
 
 }
