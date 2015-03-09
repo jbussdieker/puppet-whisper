@@ -35,6 +35,8 @@ class whisper(
   $ensure = present,
 ) {
 
+  anchor { 'whisper::begin': }
+
   if $::operatingsystem == 'Ubuntu' {
     if $::operatingsystemmajrelease == '14.04' or $::operatingsystemmajrelease == '13.10' or $::operatingsystemmajrelease == '12.04' {
       $has_package = true
@@ -54,10 +56,16 @@ class whisper(
   if $ensure == present {
 
     if $has_package == true {
-      include whisper::package
+      class { 'whisper::package':
+        before  => Anchor['whisper::end'],
+        require => Anchor['whisper::begin'],
+      }
+
     } else {
       class { 'whisper::source':
         revision => 'master',
+        before   => Anchor['whisper::end'],
+        require  => Anchor['whisper::begin'],
       }
     }
 
@@ -69,8 +77,12 @@ class whisper(
 
     class { 'whisper::source':
       revision => $ensure,
+      before   => Anchor['whisper::end'],
+      require  => Anchor['whisper::begin'],
     }
 
   }
+
+  anchor { 'whisper::end': }
 
 }

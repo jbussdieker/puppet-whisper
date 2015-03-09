@@ -72,7 +72,7 @@ describe 'whisper' do
   end
 
   context 'default params' do
-    it { should have_resource_count(1) }
+    it { should have_resource_count(3) }
 
     it 'should install from package' do
       should contain_class('whisper::package')
@@ -82,7 +82,7 @@ describe 'whisper' do
   context 'custom params' do
     let(:ensure_value) { '0.0.1' }
 
-    it { should have_resource_count(2) }
+    it { should have_resource_count(4) }
 
     it 'should install from source' do
       should contain_class('whisper::source').with({
@@ -92,4 +92,6 @@ describe 'whisper' do
   end
 
   it { should contain_class('whisper') }
+  it { should contain_anchor('whisper::begin') }
+  it { should contain_anchor('whisper::end') }
 end
