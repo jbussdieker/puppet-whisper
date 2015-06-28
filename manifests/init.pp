@@ -32,7 +32,7 @@
 # Copyright 2015 Joshua B. Bussdieker, unless otherwise noted.
 #
 class whisper(
-  $ensure = present,
+  $ensure = 'master',
 ) {
 
   anchor { 'whisper::begin': }
