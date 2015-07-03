@@ -17,6 +17,10 @@ describe 'whisper class' do
   end
 
   describe 'command line tools' do
+    it 'should report a version' do
+      shell("PYTHONPATH=$PYTHONPATH:/opt/graphite/lib python -c \"import pkg_resources; print pkg_resources.get_distribution('whisper').version\"", :acceptable_exit_codes => 0)
+    end
+
     it 'whisper-create.py should work' do
       shell("whisper-create.py --overwrite /tmp/testmetric.wsp 60:1440", :acceptable_exit_codes => 0)
     end
