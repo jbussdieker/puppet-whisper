@@ -31,9 +31,7 @@ task :beaker_all do
 
   results.each do |result|
     puts "#{result[:node]}:"
-    puts "  exit_status: #{result[:exit_status]}"
     puts "  duration: #{result[:duration]}"
+    puts "  exit_status: #{result[:exit_status]}"
   end
-
-  puts results.to_json
 end
