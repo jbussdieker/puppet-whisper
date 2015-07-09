@@ -8,3 +8,32 @@ PuppetLint.configuration.send('disable_class_inherits_from_params_class')
 PuppetLint.configuration.send('disable_documentation')
 PuppetLint.configuration.send('disable_single_quote_string_with_variables')
 PuppetLint.configuration.ignore_paths = ["spec/**/*.pp", "pkg/**/*.pp"]
+
+task :beaker_all do
+  results = []
+  nodes = Dir['spec/acceptance/nodesets/*.yml'].sort!.collect { |node|
+    node.slice!('.yml')
+    File.basename(node)
+  }
+  nodes.each do |node|
+    puts "############################# #{node} ##############################"
+    start_time = Time.now
+    pid = fork do
+      $stdout.sync = true
+      #exec("rake beaker BEAKER_destroy=yes BEAKER_set=#{node} BEAKER_provision=yes")
+      exec("ls")
+    end
+    Process.wait
+    end_time = Time.now
+    puts "### Exit Code: #{$?.exitstatus} Duration: #{end_time - start_time}"
+    results << { :node => node, :exit_status => $?.exitstatus, :duration => (end_time - start_time) }
+  end
+
+  results.each do |result|
+    puts "#{name}:"
+    puts "  exit_status: #{result[:exit_status]}"
+    puts "  duration: #{result[:duration]}"
+  end
+
+  puts results.to_json
+end

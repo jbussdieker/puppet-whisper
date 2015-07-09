@@ -1,0 +1,11 @@
+HOSTS:
+  debian6010:
+    roles:
+      - master
+    platform: debian-6-x86_64
+    box : boxcutter/debian6010
+    hypervisor : vagrant
+CONFIG:
+  log_level: trace
+  quiet: true
+  type: git

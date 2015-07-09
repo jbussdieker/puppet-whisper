@@ -1,0 +1,11 @@
+HOSTS:
+  oel66-i386:
+    roles:
+      - master
+    platform: el-6-i386
+    box : boxcutter/oel66-i386
+    hypervisor : vagrant
+CONFIG:
+  log_level: trace
+  quiet: true
+  type: git

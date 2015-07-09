@@ -1,0 +1,11 @@
+HOSTS:
+  oel511:
+    roles:
+      - master
+    platform: el-5-x86_64
+    box : boxcutter/oel511
+    hypervisor : vagrant
+CONFIG:
+  log_level: trace
+  quiet: true
+  type: git

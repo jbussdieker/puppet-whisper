@@ -1,0 +1,11 @@
+HOSTS:
+  centos59:
+    roles:
+      - master
+    platform: el-5-x86_64
+    box : boxcutter/centos59
+    hypervisor : vagrant
+CONFIG:
+  log_level: trace
+  quiet: true
+  type: git

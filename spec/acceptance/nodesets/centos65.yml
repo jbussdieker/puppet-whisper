@@ -1,0 +1,11 @@
+HOSTS:
+  centos65:
+    roles:
+      - master
+    platform: el-6-x86_64
+    box : boxcutter/centos65
+    hypervisor : vagrant
+CONFIG:
+  log_level: trace
+  quiet: true
+  type: git

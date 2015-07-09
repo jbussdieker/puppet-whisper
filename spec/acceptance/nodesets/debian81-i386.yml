@@ -1,0 +1,11 @@
+HOSTS:
+  debian81-i386:
+    roles:
+      - master
+    platform: debian-8-i386
+    box : boxcutter/debian81-i386
+    hypervisor : vagrant
+CONFIG:
+  log_level: trace
+  quiet: true
+  type: git

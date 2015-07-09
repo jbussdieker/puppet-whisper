@@ -1,0 +1,11 @@
+HOSTS:
+  fedora19:
+    roles:
+      - master
+    platform: fedora-19-x86_64
+    box : boxcutter/fedora19
+    hypervisor : vagrant
+CONFIG:
+  log_level: trace
+  quiet: true
+  type: git

@@ -1,0 +1,11 @@
+HOSTS:
+  ubuntu1204:
+    roles:
+      - master
+    platform: ubuntu-12.04-x86_64
+    box : boxcutter/ubuntu1204
+    hypervisor : vagrant
+CONFIG:
+  log_level: trace
+  quiet: true
+  type: git

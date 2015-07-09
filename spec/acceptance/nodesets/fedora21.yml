@@ -1,0 +1,11 @@
+HOSTS:
+  fedora21:
+    roles:
+      - master
+    platform: fedora-21-x86_64
+    box : boxcutter/fedora21
+    hypervisor : vagrant
+CONFIG:
+  log_level: trace
+  quiet: true
+  type: git

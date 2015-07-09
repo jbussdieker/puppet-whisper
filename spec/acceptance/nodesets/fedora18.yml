@@ -1,0 +1,11 @@
+HOSTS:
+  fedora18:
+    roles:
+      - master
+    platform: fedora-18-x86_64
+    box : boxcutter/fedora18
+    hypervisor : vagrant
+CONFIG:
+  log_level: trace
+  quiet: true
+  type: git
