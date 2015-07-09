@@ -10,6 +10,7 @@ PuppetLint.configuration.send('disable_single_quote_string_with_variables')
 PuppetLint.configuration.ignore_paths = ["spec/**/*.pp", "pkg/**/*.pp"]
 
 task :beaker_all do
+  $stdout.sync = true
   results = []
   nodes = Dir['spec/acceptance/nodesets/*.yml'].sort!.collect { |node|
     node.slice!('.yml')
@@ -20,8 +21,7 @@ task :beaker_all do
     start_time = Time.now
     pid = fork do
       $stdout.sync = true
-      #exec("rake beaker BEAKER_destroy=yes BEAKER_set=#{node} BEAKER_provision=yes")
-      exec("ls")
+      exec("rake beaker BEAKER_destroy=yes BEAKER_set=#{node} BEAKER_provision=yes")
     end
     Process.wait
     end_time = Time.now

@@ -1,5 +1,5 @@
 require 'spec_helper_acceptance'
-
+=begin
 describe 'whisper::source class' do
   let(:manifest) {
     <<-EOS
@@ -27,3 +27,4 @@ describe 'whisper::source class' do
     end
   end
 end
+=end

@@ -1,5 +1,5 @@
 require 'spec_helper_acceptance'
-
+=begin
 describe 'whisper::package class', :unless => !["Ubuntu", "Debian"].include?(fact('operatingsystem')) do
   let(:manifest) {
     <<-EOS
@@ -34,3 +34,4 @@ describe 'whisper::package class', :unless => !["Ubuntu", "Debian"].include?(fac
     end
   end
 end
+=end
