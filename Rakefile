@@ -30,7 +30,7 @@ task :beaker_all do
   end
 
   results.each do |result|
-    puts "#{name}:"
+    puts "#{result[:node]}:"
     puts "  exit_status: #{result[:exit_status]}"
     puts "  duration: #{result[:duration]}"
   end
